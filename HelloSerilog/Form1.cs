@@ -31,12 +31,12 @@ namespace HelloSerilog
 
         private void Form1_Move(object sender, EventArgs e)
         {
-            _log.Information("Moved to {@Location}", Location);
+            _log.Information("Moved to ({X}, {Y})", Location.X, Location.Y);
         }
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-            _log.Information("Resized to {@Size}", Size);
+            _log.Information("Resized to {Width} by {Height}", Width, Height);
         }
     }
 }
