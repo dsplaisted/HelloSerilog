@@ -1,4 +1,5 @@
 ﻿using Serilog;
+using Serilog.Sinks.Elasticsearch;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,10 @@ namespace HelloSerilog
         {
             _log = new LoggerConfiguration()
                 .WriteTo.LiterateConsole()
+                .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri("http://localhost:9200"))
+                {
+                    AutoRegisterTemplate = true
+                })
                 .CreateLogger();
 
             InitializeComponent();
